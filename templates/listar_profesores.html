@@ -9,28 +9,28 @@
 <body>
     {% csrf_token %}
     <div class="bloque">
-        <h1 class="titulo_clase">Listar Clases</h1>
+        <h1 class="titulo_clase">Listar Profesores</h1>
     </div>
     <table id="clases" >
         <thead class="table-primary">
             <tr>
                 <th>Nombre</th>
-                <th>Horario</th>
-                <th>Descripción</th>
+                <th>Especialidad</th>
+                <th>Clases impartidas</th>
                 <th>Acciones</th>
             </tr>
         </thead>
 
         <thead>
             <tbody>
-                {% for clase in clases %}
+                {% for profesor in profesores %}
                 <tr>
-                    <td>{{ clase.nombreC }}</td>
-                    <td>{{ clase.horario }}</td>
-                    <td>{{ clase.descripcion }}</td>
+                    <td>{{ profesor.nombre }}</td>
+                    <td>{{ profesor.especialidad }}</td>
+                    <td>{{ profesor.clasesImpartidas }}</td>
                     <td>
-                        <a href="{% url 'actualizar_clase' clase.id %}">Editar</a>
-                        <a href="{% url 'eliminar_clase' clase.id %}">Eliminar</a>
+                        <a href="{% url 'actualizar_prof' profesor.id %}">Editar</a>
+                        <a href="{% url 'eliminar_prof' profesor.id %}">Eliminar</a>
                     </td>
                 </tr>
                 {% endfor %}
@@ -47,7 +47,7 @@
         {% endif %}
     </div>
     <div class="text-center mt-4">
-        <a href="{% url 'crear_clase' %}"><button class="boton_clase">Crear nueva tarea</button></a>
+        <a href="{% url 'crear_prof' %}"><button class="boton_clase">Crear nueva profesor</button></a>
     </div>
 </div>
 </body>

@@ -3,34 +3,34 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Listar Clases</title>
+    <title>Listar Estudiante</title>
     <link rel="stylesheet" href="css\listar.css">
 </head>
 <body>
     {% csrf_token %}
     <div class="bloque">
-        <h1 class="titulo_clase">Listar Clases</h1>
+        <h1 class="titulo_clase">Listar Estudiante</h1>
     </div>
     <table id="clases" >
         <thead class="table-primary">
             <tr>
                 <th>Nombre</th>
-                <th>Horario</th>
-                <th>Descripción</th>
+                <th>Correo</th>
+                <th>Clases Inscritas</th>
                 <th>Acciones</th>
             </tr>
         </thead>
 
         <thead>
             <tbody>
-                {% for clase in clases %}
+                {% for estudiante in estudiantes %}
                 <tr>
-                    <td>{{ clase.nombreC }}</td>
-                    <td>{{ clase.horario }}</td>
-                    <td>{{ clase.descripcion }}</td>
+                    <td>{{ estudiante.nombreE }}</td>
+                    <td>{{ estudiante.correo }}</td>
+                    <td>{{ estudiante.clasesInscritas }}</td>
                     <td>
-                        <a href="{% url 'actualizar_clase' clase.id %}">Editar</a>
-                        <a href="{% url 'eliminar_clase' clase.id %}">Eliminar</a>
+                        <a href="{% url 'actualizar_estudiante' estudiante.id %}">Editar</a>
+                        <a href="{% url 'eliminar_estudiante' estudiante.id %}">Eliminar</a>
                     </td>
                 </tr>
                 {% endfor %}
@@ -47,7 +47,7 @@
         {% endif %}
     </div>
     <div class="text-center mt-4">
-        <a href="{% url 'crear_clase' %}"><button class="boton_clase">Crear nueva tarea</button></a>
+        <a href="{% url 'crear_clase' %}"><button class="boton_clase">Crear nueva estudiante</button></a>
     </div>
 </div>
 </body>
