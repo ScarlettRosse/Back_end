@@ -21,9 +21,13 @@
         </div>
         <div class="nombre-c">
             <label for="clasesImpartidas" class="nlabel">Clases impartidas: </label>
-            <input type="text" name="clasesImpartidas" id="clasesImpartidas" class="campo" required>
+            <select name="clasesImpartidas" id="clasesImpartidas">
+                {% for clase in clases %}
+                    <option value="{{ clase.id }}">={{ clase.nombre }}</option>
+                {% endfor %}
+            </select>
         </div>
-            <button type="submit" class="boton_clase">Crear Profesor</button>
+            <a href="{% url 'listar_profe' %}"><button type="submit" class="boton_clase">Crear Profesor</button></a>
         </form>
     </div>
 </body>

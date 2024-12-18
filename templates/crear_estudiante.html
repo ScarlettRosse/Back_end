@@ -21,7 +21,11 @@
         </div>
         <div class="nombre-c">
             <label for="clasesInscritas" class="nlabel">Clases Inscritas: </label>
-            <input type="text" name="clasesInscritas" id="clasesInscritas" class="campo" required>
+            <select name="clasesInscritas" id="clasesInscritas">
+                {% for clase in clases %}
+                    <option value="{{ clase.id }}">={{ clase.nombre }}</option>
+                {% endfor %}
+            </select>
         </div>
             <button type="submit" class="boton_clase">Crear Estudiante</button>
         </form>
