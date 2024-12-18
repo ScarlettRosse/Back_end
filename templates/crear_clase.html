@@ -7,24 +7,24 @@
     <link rel="stylesheet" href="css\style.css">
 </head>
 <body>
-    <h1 class="titulo_clase">Crear Clase</h2>
-    <form method="post">
-        {% csrf_token %}
-    <div class="nombre-c">
-        <label for="nombre">Nombre: </label>
-        <input type="text" id="nombre" name="nombre" required>
+    <div class="bloquec">
+        <h1 class="titulo_clase">Crear Clase</h2>
+        <form method="post">
+            {% csrf_token %}
+        <div class="nombre-c">
+            <label for="nombre" class="nlabel" >Nombre: </label>
+            <input type="text" id="nombre" name="nombre" class="campo" required>
+        </div>
+        <div class="nombre-c">
+            <label for="horario" class="nlabel">Horario: </label>
+            <input type="datetime" id="horario" name="horario" class="campo" required>
+        </div>
+        <div class="nombre-c">
+            <label for="descripcion" class="nlabel">Descripción: </label>
+            <textarea class="form-control" id="descripcion" name="descripcion" rows="4" required placeholder="Escribe la descripción"></textarea>
+        </div>
+            <button type="submit" class="boton_clase">Crear clase</button>
+        </form>
     </div>
-    <div class="nombre-c">
-        <label for="horario">Horario: </label>
-        <input type="datetime" id="horario" name="horario" required>
-    </div>
-    <div class="nombre-c">
-        <label for="descripcion">Descripción: </label>
-        <textarea class="form-control" id="descripcion" name="descripcion" rows="4" required placeholder="Escribe la descripción"></textarea>
-    </div>
-    <div class="conetedor-boton">
-        <button type="submit" class="boton_clase">Crear clase</button>
-    </div>
-    </form>
 </body>
 </html>

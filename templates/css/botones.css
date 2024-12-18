@@ -1,5 +1,5 @@
 .botones {
-    overflow: hidden; /* Evita problemas con floats */
+    overflow: hidden;
     text-align: center;
     display: flex;
     justify-content: flex-end;
@@ -7,8 +7,8 @@
 }
 
 .boton {
-    float: left; /* Alinea los botones horizontalmente */
-    margin: 0 5px; /* Espacio entre botones */
+    float: left;
+    margin: 0 5px;
     background-color: blue;
     color: white;
     padding: 10px 20px;
@@ -23,20 +23,13 @@
 
 
 .titulo_clase{
-    -webkit-text-stroke: 0.2px black;
-        color: rgb(255, 82, 82);
-        text-shadow:
-       3px 3px 0 #00000083,
-     -1px -1px 0 #00000083,  
-      1px -1px 0 #00000083,
-      -1px 1px 0 #00000083,
-       1px 1px 0 #00000083;
+    color: rgb(255, 82, 82);
     text-align: center;
 }
 
 .boton_eliminar{
-    float: left; /* Alinea los botones horizontalmente */
-    margin: 0 5px; /* Espacio entre botones */
+    float: left;
+    margin: 0 5px;
     background-color: red;
     color: white;
     padding: 10px 20px;

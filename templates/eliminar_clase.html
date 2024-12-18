@@ -11,7 +11,7 @@
     <form action="post">
         {% csrf_token %}
         <div class="botones">
-            <button type="submit" class="boton_eliminar">Sí</button>
+            <a href="{% url 'listar_clase' %}"><button type="submit" class="boton_eliminar">Sí</button></a>
             <a href="{% url 'crear_clase' %}"><button class="boton">No</button></a>
         </div>
     </form>

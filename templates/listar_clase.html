@@ -4,11 +4,13 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Listar Clases</title>
-    <link rel="stylesheet" href="css\style.css">
+    <link rel="stylesheet" href="css\listar.css">
 </head>
 <body>
     {% csrf_token %}
-    <h1 class="titulo_clase">Listar Clases</h1>
+    <div class="bloque">
+        <h1 class="titulo_clase">Listar Clases</h1>
+    </div>
     <table id="clases" >
         <thead class="table-primary">
             <tr>
@@ -45,7 +47,7 @@
         {% endif %}
     </div>
     <div class="text-center mt-4">
-        <a href="{% url 'crear_clase' %}" class="btn btn-primary">Crear nueva tarea</a>
+        <a href="{% url 'crear_clase' %}"><button class="boton_clase">Crear nueva tarea</button></a>
     </div>
 </div>
 </body>
