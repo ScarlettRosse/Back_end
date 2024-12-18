@@ -1,0 +1,50 @@
+.botones {
+    overflow: hidden; /* Evita problemas con floats */
+    text-align: center;
+    display: flex;
+    justify-content: flex-end;
+    padding-right: 900px;
+}
+
+.boton {
+    float: left; /* Alinea los botones horizontalmente */
+    margin: 0 5px; /* Espacio entre botones */
+    background-color: blue;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.boton:hover {
+    background-color: darkblue;
+}
+
+
+.titulo_clase{
+    -webkit-text-stroke: 0.2px black;
+        color: rgb(255, 82, 82);
+        text-shadow:
+       3px 3px 0 #00000083,
+     -1px -1px 0 #00000083,  
+      1px -1px 0 #00000083,
+      -1px 1px 0 #00000083,
+       1px 1px 0 #00000083;
+    text-align: center;
+}
+
+.boton_eliminar{
+    float: left; /* Alinea los botones horizontalmente */
+    margin: 0 5px; /* Espacio entre botones */
+    background-color: red;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.boton_eliminar:hover {
+    background-color: rgb(141, 0, 0);
+}
