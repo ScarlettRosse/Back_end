@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Inicio</title>
+    <link rel="stylesheet" href="css/inicio.css">
+</head>
+<body>
+    <h1 class="texto_inicial">Opciones</h1>
+    <center>
+    <a href="{% url 'listar_clases' %}"><button class="botones_inicio">Gestión de Clases</button></a>
+    <a href="{% url 'listar_prof' %}"><button class="botones_inicio">Gestión de Profesores</button></a>
+    <a href="{% url 'listar_estudiantes' %}"><button class="botones_inicio">Gestión de Estudiantes</button></a>
+    </center>
+</body>
+</html>

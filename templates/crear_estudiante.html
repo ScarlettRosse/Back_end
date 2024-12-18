@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Crear Estudiante</title>
+    <link rel="stylesheet" href="css\style.css">
+</head>
+<body>
+    <div class="bloquec">
+        <h1 class="titulo_clase">Crear Estudiante</h2>
+        <form method="post">
+            {% csrf_token %}
+        <div class="nombre-c">
+            <label for="nombreE" class="nlabel" >Nombre: </label>
+            <input type="text" id="nombreE" name="nombreE" class="campo" required>
+        </div>
+        <div class="nombre-c">
+            <label for="correo" class="nlabel">Correo: </label>
+            <input type="text" id="correo" name="correo" class="campo" required>
+        </div>
+        <div class="nombre-c">
+            <label for="clasesInscritas" class="nlabel">Clases Inscritas: </label>
+            <input type="text" name="clasesInscritas" id="clasesInscritas" class="campo" required>
+        </div>
+            <button type="submit" class="boton_clase">Crear Estudiante</button>
+        </form>
+    </div>
+</body>
+</html>
