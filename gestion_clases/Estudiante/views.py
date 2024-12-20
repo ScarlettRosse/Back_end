@@ -3,7 +3,7 @@ from django.contrib.auth.decorators import login_required
 from django.core.paginator import Paginator
 from .models import Estudiante
 from Clase.models import Clase
-
+@login_required
 def agregar_estudiante(request):
     Clas = Clase.objects.all()
     Estu = Estudiante.objects.all()
@@ -22,14 +22,14 @@ def agregar_estudiante(request):
         Estudiante.objects.create(nombre=nombre, correo=correo, clases_inscritas=clases_inscritas)
         return redirect('listar_estudiantes')
     return render(request, 'crear_estudiante.html', {'Estu': Estu, 'Clas': Clas})
-
+@login_required
 def listar_estudiante(request):
     Estu = Estudiante.objects.select_related('clases_inscritas').all()
     paginator = Paginator(Estu, 5)
     page_number = request.GET.get('page')
     page_obj = paginator.get_page(page_number)
     return render(request,'listar_estudiantes.html', {'Estu':Estu, 'page_obj':page_obj})
-
+@login_required
 def actualizar_Estudiante(request, id):
     Estu = get_object_or_404(Estudiante, id=id)
     if request.method == 'POST':
@@ -41,7 +41,7 @@ def actualizar_Estudiante(request, id):
         Estu.save()
         return redirect('listarE')
     return render(request, 'actualizar_estudiante.html', {'Estu':Estu})
-
+@login_required
 def eliminar_estudiante(request, id):
     Estu = get_object_or_404(Estudiante, id=id)
     if request.method == 'POST':

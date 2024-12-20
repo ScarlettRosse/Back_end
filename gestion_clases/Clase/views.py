@@ -4,7 +4,7 @@ from django.core.paginator import Paginator
 from .models import Clase
 
 
-
+@login_required
 def agregar_clase(request):
     Clas = Clase.objects.all()
     if request.method == 'POST':
@@ -15,14 +15,14 @@ def agregar_clase(request):
         return redirect( 'listar_clases')
     return render(request, 'crear_clase.html', {'Clas':Clas})
 
-
+@login_required
 def listar_clase(request):
     Clas = Clase.objects.all()
     paginator = Paginator(Clas, 5)
     page_number = request.GET.get('page')
     page_obj = paginator.get_page(page_number)
     return render(request,'listar_clase.html', {'Clas':Clas, 'page_obj':page_obj})
-
+@login_required
 def actualizar_clase(request, id):
     Clas = get_object_or_404(Clase, id=id)
     if request.method == 'POST':
@@ -32,10 +32,10 @@ def actualizar_clase(request, id):
         Clas.save()
         return redirect('listar_clases')
     return render(request, 'actualizar.html', {'Clas':Clas})
-
+@login_required
 def eliminar_clase(request, id):
-    Clas = get_object_or_404(Clase, id=id)
+    clase = get_object_or_404(Clase, id=id)
     if request.method == 'POST':
-        Clas.delete()
+        clase.delete()
         return redirect('listar_clases')
-    return render(request, 'eliminar_clase.html', {'Clas':Clas})
+    return render(request, 'eliminar_clase.html', {'clase': clase})

@@ -4,15 +4,14 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Eliminar Clase</title>
-    <link rel="stylesheet" href="css\botones.css">
 </head>
 <body>
-    <h1 class="titulo_clase">¿Seguro que deseas eliminar la clase "{{ clase.nombre }}"</h2>
-    <form action="post">
+    <h1 class="titulo_clase">¿Seguro que deseas eliminar la clase "{{ clase.nombre }}"?</h1>
+    <form method="POST" action="{% url 'eliminar_clase' clase.id %}">
         {% csrf_token %}
-        <div class="botones">
-            <a href="{% url 'listar_clase' %}"><button type="submit" class="boton_eliminar">Sí</button></a>
-            <a href="{% url 'crear_clase' %}"><button class="boton">No</button></a>
+        <div>
+            <button type="submit">Sí</button>
+            <a href="{% url 'listar_clases' %}"><button type="button">No</button></a>
         </div>
     </form>
 </body>
