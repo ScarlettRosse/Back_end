@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Crear Clase</title>
+    <link rel="stylesheet" href="css\style.css">
+</head>
+<body>
+    <div class="bloquec">
+        <h1 class="titulo_clase">Crear Clase</h2>
+        <form method="post">
+            {% csrf_token %}
+        <div class="nombre-c">
+            <label for="nombreC" class="nlabel" >Nombre: </label>
+            <input type="text" id="nombreC" name="nombreC" class="campo" required>
+        </div>
+        <div class="nombre-c">
+            <label for="horario" class="nlabel">Horario: </label>
+            <input type="datetime" id="horario" name="horario" class="campo" required>
+        </div>
+        <div class="nombre-c">
+            <label for="descripcion" class="nlabel">Descripción: </label>
+            <textarea class="form-control" id="descripcion" name="descripcion" rows="4" required placeholder="Escribe la descripción"></textarea>
+        </div>
+            <button type="submit" class="boton_clase">Crear clase</button>
+        </form>
+    </div>
+</body>
+</html>

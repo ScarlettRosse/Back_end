@@ -4,25 +4,31 @@ from django.core.paginator import Paginator
 from .models import Estudiante
 from Clase.models import Clase
 
-
 def agregar_estudiante(request):
+    Clas = Clase.objects.all()
     Estu = Estudiante.objects.all()
     if request.method == 'POST':
         nombre = request.POST.get('nombreE')
         correo = request.POST.get('correo')
-        clases_id = request.POST.get('claseInscritas')
-        clases_inscritas = clases_id.objects.get(id=clases_id) if clases_id  else None
-        Profesor.objects.create(nombre=nombre, correo=correo, clases_inscritas=clases_inscritas)
-        return redirect( 'listarE')
-    return render(request, 'crear_estudiante.html', {'Estu':Estu})
-
+        clases_id = request.POST.get('clasesInscritas')  
+        clases_inscritas = Clase.objects.get(id=clases_id) if clases_id else None
+        
+        if not nombre or not correo:
+            return HttpResponse("Nombre y correo son requeridos", status=400)
+        
+        if not clases_inscritas:
+            return HttpResponse("Clase inscrita es requerida", status=400)
+        
+        Estudiante.objects.create(nombre=nombre, correo=correo, clases_inscritas=clases_inscritas)
+        return redirect('listar_estudiantes')
+    return render(request, 'crear_estudiante.html', {'Estu': Estu, 'Clas': Clas})
 
 def listar_estudiante(request):
-    Estu = Estudiante.objects.select_related('Clase').all()
+    Estu = Estudiante.objects.select_related('clases_inscritas').all()
     paginator = Paginator(Estu, 5)
     page_number = request.GET.get('page')
     page_obj = paginator.get_page(page_number)
-    return render(request,'listar_estudiantes.html', {'Estu':Estu})
+    return render(request,'listar_estudiantes.html', {'Estu':Estu, 'page_obj':page_obj})
 
 def actualizar_Estudiante(request, id):
     Estu = get_object_or_404(Estudiante, id=id)
