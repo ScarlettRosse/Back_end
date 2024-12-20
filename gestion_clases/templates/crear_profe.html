@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Crear Profesor</title>
+    <link rel="stylesheet" href="css\style.css">
+</head>
+<body>
+    <div class="bloquec">
+        <h1 class="titulo_clase">Crear Profesor</h2>
+        <form method="post">
+            {% csrf_token %}
+            <div class="nombre-c">
+                <label for="nombreP" class="nlabel" >Nombre: </label>
+                <input type="text" id="nombreP" name="nombreP" class="campo" required>
+            </div>
+            <div class="nombre-c">
+                <label for="especialidad" class="nlabel">Especialidad: </label>
+                <input type="text" id="especialidad" name="especialidad" class="campo" required>
+            </div>
+            <div class="nombre-c">
+                <label for="clasesImpartidas" class="nlabel">Clases impartidas: </label>
+                <select name="clasesImpartidas" id="clasesImpartidas">
+                    {% for clase in Clas %}
+                        <option value="{{ clase.id }}">={{ clase.nombre }}</option>
+                    {% endfor %}
+                </select>
+            </div>
+            <a href="{% url 'listar_prof' %}"><button type="submit" class="boton_clase">Crear Profesor</button></a>
+        </form>
+    </div>
+</body>
+</html>
