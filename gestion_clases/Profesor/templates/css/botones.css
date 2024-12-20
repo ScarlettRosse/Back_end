@@ -1,0 +1,43 @@
+.botones {
+    overflow: hidden;
+    text-align: center;
+    display: flex;
+    justify-content: flex-end;
+    padding-right: 900px;
+}
+
+.boton {
+    float: left;
+    margin: 0 5px;
+    background-color: blue;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.boton:hover {
+    background-color: darkblue;
+}
+
+
+.titulo_clase{
+    color: rgb(255, 82, 82);
+    text-align: center;
+}
+
+.boton_eliminar{
+    float: left;
+    margin: 0 5px;
+    background-color: red;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.boton_eliminar:hover {
+    background-color: rgb(141, 0, 0);
+}

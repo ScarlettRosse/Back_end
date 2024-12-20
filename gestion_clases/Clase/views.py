@@ -12,7 +12,6 @@ def agregar_clase(request):
         horario = request.POST.get('horario')
         descripcion = request.POST.get('descripcion')
         Clase.objects.create(nombre=nombre, horario=horario, descripcion=descripcion)
-        return redirect( 'listar_clases')
     return render(request, 'crear_clase.html', {'Clas':Clas})
 
 
