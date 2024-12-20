@@ -11,13 +11,13 @@ def agregar_clase(request):
         nombre = request.POST.get('nombreC')
         horario = request.POST.get('horario')
         descripcion = request.POST.get('descripcion')
-        Profesor.objects.create(nombre=nombre, horario=horario, descripcion=descripcion)
+        Clase.objects.create(nombre=nombre, horario=horario, descripcion=descripcion)
         return redirect( 'listarC')
     return render(request, 'crear_clase.html', {'Clas':Clas})
 
 
 def listar_clase(request):
-    Clas = Clase.objects.all()z
+    Clas = Clase.objects.all()
     paginator = Paginator(Clas, 5)
     page_number = request.GET.get('page')
     page_obj = paginator.get_page(page_number)
