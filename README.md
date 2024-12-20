@@ -1,47 +1,93 @@
-Back_end
-Proyecto para la 4° nota en el ramo de Back End
 
-Se agrego mediante una WebHook la posibilidad de visualizar cada vez que se realizaba un "push", "commit", "merge", "pull" y "merge pull request"
+# Proyecto de Programación Backend
 
-Este proyecto fue hecho para la cuarta evaluación de Programación Backend.
+## Descripción
+Este proyecto fue desarrollado como parte de la cuarta evaluación de Programación Backend. Es un sistema CRUD diseñado para organizar datos relacionados con **Clases**, **Profesores** y **Estudiantes**, cada uno con sus respectivas funcionalidades.
 
-Este proyecto se puede clonar con el comando "git clone https://github.com/ScarlettRosse/Back_end.git".
+---
 
-Este CRUD esta hecho para ordenar datos via software el cual es sobre Clases, profesores y estudiantes cada uno con sus funcionalidades CRUD.
+## Instalación
 
-El proyecto es hecho con Django versión 5.1.1 y Python 3.12.4.
+### Clonar el repositorio
+Clona el proyecto con el siguiente comando:
+```bash
+git clone https://github.com/ScarlettRosse/Back_end.git
+```
 
-Para instalar Django se ocupa el comando "pip install django" y para ver 
-su versión se coloca el comando "python -m django --version" con esto
-deberia dar como resultado:
-. 5.1.1.
+---
 
-Para iniciar el proyecto se necesita ocupar el comando "django-admin startproject "nombre_del_proyecto"" y para empezar a crear las aplicaciones se ocupa "manage.py startapp "nombre_de_la_aplicación".
+## Requisitos del Sistema
 
-Cada aplicacion tiene su CRUD y templates donde estan guardados el CSS y Images esto para mantener un orden y limpieza del mismo.
+- **Django:** Versión 5.1.1
+- **Python:** Versión 3.12.4
 
-Las librerias importadas y ocupadas son las siguientes:
-Desde "django.shortcuts" se importo "render, redirect y get_object_or_404".
-Desde "django.contrib.auth.decorators" se importo "login_required".
-Desde "django.core.paginator" se importo "Paginator".
-Desde "django.urls" se importo "path".
-Primero para empezar se inicia con la configuración del "settings.py" donde se copia la variable
-"BASE_DIR" y se coloca en TEMPLATES en "DIRS" de la siguiente forma: [BASE_DIR/"templates"] de esta forma se va a buscar la carpeta templates automaticamente.
+### Instalación de Dependencias
 
-El siguiente paso es configurar las aplicaciones las cuales se colcan en "INSTALLED_APPS" siguiendo el orden que se ve en esta.
+1. Para instalar Django:
+   ```bash
+   pip install django
+   ```
 
- 
-// Función agregar clase
-    Ocupando como referencia la aplicación Clases se muestra como "agregar_clase" Clas trae todos los modelos de los datos desde "models" para despues hacer un "if" para tomar los datos mediante el metodo POST y guardarlo dentro de variables para despues crear el objeto 
-    retornar al usuario a la lista para que vea como se guardaron los datos este a su vez hay un return render el cual manda los datos mediante un diccionario.
+2. Para verificar la versión de Django instalada:
+   ```bash
+   python -m django --version
+   ```
+   Debe devolver: `5.1.1`.
 
-// Función listar clase
-    Esta funcion lo que hace es traer los datos para mostrarlo mediante una lista hecha en HTML con el paginator el cual esta paginado por 5.
+---
 
-// Función actualizar clase
-    Las siguientes funciones de las otras aplicaciones funcionan de la misma manera que Clase.
-    Esta funcion es casi lo mismo que el crear con la diferencia de que tiene el get_object_or_404 el cual trae los datos de la clase Clase con sus ids y las siguientes lineas son lo mismo que "crear clase" con la diferencia que esta es para editarlas para despues hacer 
-    un "save()" para guardar los datos ya editados.
+## Inicialización del Proyecto
 
-// Función eliminar clase
-    Esta función trae los datos desde la clase Clase con sus ids para ser eliminado.
+1. **Inicia el proyecto con:**
+   ```bash
+   django-admin startproject nombre_del_proyecto
+   ```
+
+2. **Crea las aplicaciones con:**
+   ```bash
+   python manage.py startapp nombre_de_la_aplicacion
+   ```
+
+---
+
+## Estructura del Proyecto
+
+### Características de las Aplicaciones
+- Funcionalidades **CRUD** completas.
+- Templates organizados en carpetas para **CSS** e **Imágenes**, manteniendo orden y limpieza.
+
+### Configuración de `settings.py`
+1. En la sección `TEMPLATES > DIRS`, agrega:
+   ```python
+   [BASE_DIR / "templates"]
+   ```
+
+2. Registra las aplicaciones en la sección `INSTALLED_APPS` de `settings.py`.
+
+---
+
+## Librerías Utilizadas
+- **`django.shortcuts`:** `render`, `redirect`, `get_object_or_404`
+- **`django.contrib.auth.decorators`:** `login_required`
+- **`django.core.paginator`:** `Paginator`
+- **`django.urls`:** `path`
+
+---
+
+## Funcionalidades Principales
+
+### 1. **Agregar Clase**
+La función `agregar_clase` captura datos mediante el método `POST`, crea un objeto con ellos y los guarda. Posteriormente, redirige al usuario a la lista para visualizar el nuevo registro.
+
+### 2. **Listar Clase**
+La función `listar_clase` obtiene todos los registros y los muestra en una lista HTML paginada, organizados en bloques de 5 elementos.
+
+### 3. **Actualizar Clase**
+La función `actualizar_clase` utiliza `get_object_or_404` para recuperar un objeto por su `id`, permite editar sus datos y los guarda con el método `save()`.
+
+### 4. **Eliminar Clase**
+La función `eliminar_clase` utiliza `get_object_or_404` para localizar un objeto por su `id` y lo elimina de la base de datos.
+
+---
+
+Este sistema CRUD fue diseñado para garantizar una gestión sencilla y eficaz de los datos, aprovechando las capacidades y herramientas de Django.
