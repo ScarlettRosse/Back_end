@@ -26,7 +26,7 @@ def agregar_profe(request):
             return HttpResponse("Clase impartida es requerida", status=400)
         
         Profesor.objects.create(nombre=nombre, especialidad=especialidad, clases_impartidas=clases_impartidas)
-        return redirect('listar_profe')
+        return redirect('listar_prof')
     return render(request, 'crear_profe.html', {'Profe': Profe, 'Clas': Clas})
 
 def listar_profe(request):
