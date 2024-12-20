@@ -1,10 +1,17 @@
 from django.contrib import admin
 from django.urls import path
+from django.contrib.auth import views as auth_views
 from Clase.views import *
 from Estudiante.views import *
 from Profesor.views import *
+
 urlpatterns = [
+    path('admin/', admin.site.urls),
+    path('login/', auth_views.LoginView.as_view(template_name='login.html'), name='login'),
+    path('logout/', auth_views.LogoutView.as_view(next_page='login'), name='logout'),
     path('', pagina_principal, name='inicio'),
+    path('registro/', registro, name='registro'),
+# -----------------------clase--------------------------------
     path('add_clase/',agregar_clase, name='crear_clase'),
     path('list_clase/', listar_clase, name='listar_clases'),
     path('actu_clase/<int:id>', actualizar_clase, name='actualizar_clase'),
